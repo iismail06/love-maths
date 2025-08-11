@@ -30,16 +30,30 @@ Love Maths is an educational web application designed to make learning mathemati
 ### Installation
 
 1. Clone the repository:
+
+ ```bash
+ git clone https://github.com/iismail06/love-maths.git
+ ```
+
+1. Navigate to the project directory:
+
+ ```bash
+ cd love-maths
+ ```
+
+1. Open `index.html` in your web browser to start playing.
+
 ```bash
 git clone https://github.com/iismail06/love-maths.git
 ```
 
-2. Navigate to the project directory:
+1. Navigate to the project directory:
+
 ```bash
 cd love-maths
 ```
 
-3. Open `index.html` in your web browser to start playing.
+1. Open `index.html` in your web browser to start playing.
 
 ## How to Play
 
