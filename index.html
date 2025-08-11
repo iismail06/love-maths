@@ -22,17 +22,21 @@
 <!--Game area-->
 <div class="game-area">
     <div class ="control-area">
-        <button class = "btn btn--big btn--green"> 
+        <button data-type="addition" class = "btn btn--big btn--green"> 
             <i class="fas fa-plus"></i>
+            <div style="font-size: 0.3em; color: gray; margin-top: 25px; text-align: center; width: 100%;">Addition</div>
         </button>
-        <button class = "btn btn--big btn--blue">
+        <button data-type="subtraction" class = "btn btn--big btn--blue">
             <i class="fas fa-minus"></i>
+            <div style="font-size: 0.3em; color: gray; margin-top: 25px; text-align: center; width: 100%;">Subtract</div>
         </button>
-        <button class = "btn btn--big btn--orange">
+        <button data-type="multiply" class = "btn btn--big btn--orange">
             <i class="fas fa-times"></i>
+            <div style="font-size: 0.3em; color: gray; margin-top: 25px; text-align: center; width: 100%;">Multiply</div>
         </button>
-        <button class = "btn btn--big btn--red">
+        <button data-type="division" class = "btn btn--big btn--red">
             <i class="fas fa-divide"></i>
+            <div style="font-size: 0.3em; color: gray; margin-top: 25px; text-align: center; width: 100%;">Division</div>
         </button>
     </div>
     <!--Question area-->
@@ -42,9 +46,9 @@
         <span id = "operand2">0</span>
         <span>=</span>
         <p class="answer-message"> Enter Answer: </p>
-        <input  id="answer-box" type="number" class="answer-input"  placeholder="Your answer here">
+        <input  id="answer-box" type="number" class="answer-input">
     </div>
-    <button class = "btn btn--grey">Submit Answer</button>
+    <button data-type="submit" class = "btn btn--gray">Submit Answer</button>
 </div>
 
 <!--Score area-->
