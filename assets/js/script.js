@@ -39,7 +39,6 @@ function runGame(gameType) {
   
 }
 
-
 /**
  * Checks the answer against the first element in the array returned by
  * calculateCorrectAnswers array.
@@ -50,10 +49,12 @@ function checkAnswer() {
     let isCorrect = userAnswer === correctAnswers[0];                                      // Check if the user's answer matches the first element in the array
 
     if (isCorrect) {
-        alert('Hey! you got it right! :D');                                                          // Alert the user if the answer is correct
+        alert('Hey! you got it right! :D');                                              // Alert the user if the answer is correct
+        incrementScore();                                                                // Increment the score if the answer is correct
 
     } else {
-        alert(`Awwww.... you answered ${userAnswer}. The correct answer was ${correctAnswers[0]}!`);                // Alert the user if the answer is incorrect
+        alert(`Awwww.... you answered ${userAnswer}. The correct answer was ${correctAnswers[0]}!`);          // Alert the user if the answer is incorrect
+        incrementWrongAnswers();                                                                                 // Increment the wrong answers if the answer is incorrect
     }
 
     document.getElementById('answer-box').value = '';               // Clear the input box for the next question
@@ -75,17 +76,23 @@ function calculateCorrectAnswers() {
         alert(`Unimplemented operator ${operator}`);
         throw `Unimplemented operator ${operator}. Aborting!`;  // Throw an error if the operator is not implemented    
     }
-
-
 }
 
-// To increment the score
+/**
+ * Get the current score from the DOM, increment it by 1, and update the DOM.
+ */
 function incrementScore() {
-    
+    let oldScore = parseInt(document.getElementById('score').innerText);      // Get the current score from the DOM
+    document.getElementById('score').innerText = ++oldScore;                // Update the DOM with the new score
 }
-// To increment the number of wrong answers
+
+/**
+ * Get the current number of wrong answers from the DOM, increment it by 1, and update the DOM.
+ */
+
 function incrementWrongAnswers() {
-    
+    let oldWrongAnswers = parseInt(document.getElementById('incorrect').innerText);  // Get the current wrong answers from the DOM
+    document.getElementById('incorrect').innerText = ++oldWrongAnswers;              // Update the DOM with the new wrong answers
 }
 
 // To display an addition question
