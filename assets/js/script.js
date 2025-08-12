@@ -79,7 +79,7 @@ function calculateCorrectAnswers() {
     if (operator === '+') {
         return [operand1 + operand2, "addition"];                              // Return the sum if the operator is plus
     } else if (operator === '-') {
-        return [operand1 - operand2, "subtract"];                           // Return the difference if the operator is minus
+        return [operand1 - operand2, "subtract"];                              // Return the difference if the operator is minus
     } else if (operator === 'x') {
         return [operand1 * operand2, "multiply"];                              // Return the product if the operator is multiplication
     } else if (operator === '/') {
@@ -117,8 +117,12 @@ function displayAdditionQuestion(operand1, operand2) {   // Display an addition 
 }
 // To display a subtraction question
 function displaySubtractQuestion(operand1, operand2) {
-    document.getElementById('operand1').textContent = operand1;
-    document.getElementById('operand2').textContent = operand2;
+    // Set the first operand to the larger of the two numbers and the second operand to the smaller of the two numbers
+    // This ensures that the subtraction question is always in the form of a - b, where a >= b
+    // This prevents negative answers and makes the game easier for younger players
+    // This is done by comparing the two operands and setting the first operand to the larger of the two numbers
+    document.getElementById('operand1').textContent = operand1 > operand2 ? operand1 : operand2;  
+    document.getElementById('operand2').textContent = operand1 > operand2 ? operand2 : operand1; 
     document.getElementById('operator').textContent = '-';
 
 }
