@@ -32,6 +32,12 @@ function runGame(gameType) {
 
    if(gameType === 'addition') {
        displayAdditionQuestion(num1, num2);
+   } else if (gameType === 'subtract') {
+         displaySubtractQuestion(num1, num2);                  // If the game type is subtraction, display a subtraction question
+    } else if (gameType === 'multiply') {
+         displayMultiplyQuestion(num1, num2);                   // If the game type is multiplication, display a multiplication question
+    } else if (gameType === 'division') {
+         displayDivisionQuestion(num1, num2);                   // If the game type is division, display a division question
    } else {
          alert(`Unknown game type: ${gameType}`);                   // Alert the user if the game type is unknown
          throw `Unknown game type: ${gameType}. Aborting!`;         // Throw an error to stop the game
@@ -71,7 +77,13 @@ function calculateCorrectAnswers() {
     let operator = document.getElementById('operator').innerText;
 
     if (operator === '+') {
-        return [operand1 + operand2, "addition"];  // Return the sum if the operator is plus
+        return [operand1 + operand2, "addition"];                              // Return the sum if the operator is plus
+    } else if (operator === '-') {
+        return [operand1 - operand2, "subtract"];                           // Return the difference if the operator is minus
+    } else if (operator === 'x') {
+        return [operand1 * operand2, "multiply"];                              // Return the product if the operator is multiplication
+    } else if (operator === '/') {
+        return [operand1 / operand2, "division"];                              // Return the quotient if the operator is division
     } else {
         alert(`Unimplemented operator ${operator}`);
         throw `Unimplemented operator ${operator}. Aborting!`;  // Throw an error if the operator is not implemented    
@@ -111,11 +123,17 @@ function displaySubtractQuestion(operand1, operand2) {
 
 }
   // To display a multiplication question
-function displayMultiplyQuestion() {
+function displayMultiplyQuestion(operand1, operand2) {
+    document.getElementById('operand1').textContent = operand1;     // Set the first operand
+    document.getElementById('operand2').textContent = operand2;
+    document.getElementById('operator').textContent = 'x';          // Set the operator to multiplication
   
 } 
 
 // To display a division question
-function displayDivisionQuestion() {
+function displayDivisionQuestion(operand1, operand2) {
+    document.getElementById('operand1').textContent = operand1;
+    document.getElementById('operand2').textContent = operand2;
+    document.getElementById('operator').textContent = '/';          // Set the operator to division
     
 }
