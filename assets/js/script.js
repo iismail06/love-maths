@@ -14,11 +14,18 @@
             }
         });
     }
+    document.getElementById('answer-box').addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {                            // If the user presses the Enter key
+            checkAnswer();                                      // Check the answer
+        }
+    });
     runGame('addition');                                         // Start the game with addition by default
 
  })
  
  
+
+
  
 
 /**
@@ -26,7 +33,11 @@
  * and after the user's answer has been processed.
  */
 function runGame(gameType) {
-    // Generate two random numbers between 1 and 25 
+    document.getElementById('answer-box').value = '';                // Clear the input box for the next question
+    document.getElementById('answer-box').focus();                  // Focus the input box for the next question
+
+
+// Generate two random numbers between 1 and 25
    let num1 = Math.floor(Math.random() * 25) + 1;
    let num2 = Math.floor(Math.random() * 25) + 1;
 
@@ -62,9 +73,6 @@ function checkAnswer() {
         alert(`Awwww.... you answered ${userAnswer}. The correct answer was ${correctAnswers[0]}!`);          // Alert the user if the answer is incorrect
         incrementWrongAnswers();                                                                                 // Increment the wrong answers if the answer is incorrect
     }
-
-    document.getElementById('answer-box').value = '';               // Clear the input box for the next question
-    runGame(correctAnswers[1]);                                     // Run the game again with the same type of question
 }
 
 /**
