@@ -23,23 +23,19 @@
 
  })
  
- 
-
-
- 
-
 /**
  * The main game "loop", called when the script is first loaded
  * and after the user's answer has been processed.
  */
 function runGame(gameType) {
-    document.getElementById('answer-box').value = '';                // Clear the input box for the next question
-    document.getElementById('answer-box').focus();                  // Focus the input box for the next question
+    
+    // Clear and focus the input box for the new question
+    document.getElementById('answer-box').value = '';
+    document.getElementById('answer-box').focus();
 
-
-// Generate two random numbers between 1 and 25
-   let num1 = Math.floor(Math.random() * 25) + 1;
-   let num2 = Math.floor(Math.random() * 25) + 1;
+    // Generate two random numbers between 1 and 25
+    let num1 = Math.floor(Math.random() * 25) + 1;
+    let num2 = Math.floor(Math.random() * 25) + 1;
 
    if(gameType === 'addition') {
        displayAdditionQuestion(num1, num2);
@@ -73,6 +69,9 @@ function checkAnswer() {
         alert(`Awwww.... you answered ${userAnswer}. The correct answer was ${correctAnswers[0]}!`);          // Alert the user if the answer is incorrect
         incrementWrongAnswers();                                                                                 // Increment the wrong answers if the answer is incorrect
     }
+    document.getElementById('answer-box').value = '';                // Clear the input box for the next question
+    document.getElementById('answer-box').focus();                  // Focus the input box for the next question
+    runGame(correctAnswers[1]); 
 }
 
 /**
